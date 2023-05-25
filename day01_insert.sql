@@ -29,6 +29,47 @@ son_degisiklik_tarihi DATE
 
 SELECT * FROM fen_lisesi;
 INSERT INTO fen_lisesi VALUES (101,'Mustafa Onkibar',4.3,'Rize','2023-05-23');
+INSERT INTO fen_lisesi VALUES (102,'Esat Fatih',4.5,'Balikesir','2023-05-22');
+INSERT INTO fen_lisesi VALUES (103,'Sevda Hanim',4.2,'Erzurum','2023-05-19');
+INSERT INTO fen_lisesi VALUES (104,'Veysel Jonturk',3.9,'Mersin','2023-05-13');
+INSERT INTO fen_lisesi VALUES (105,'Kubra Filiz',3.8,'Ankara','2023-05-22');
+INSERT INTO fen_lisesi VALUES (106,'Yasemin Tahtali',4.9,'Kutahya','2023-05-29');
+
+-- UNIQUE olarak belirledigimiz bir field'a istedigimiz kadar NULL deger kaydedebiliriz
+-- ancak data tipi String ise hiclik ifadesini sadece 1 kere kaydeder, 
+-- diger kayitlarda duplicate hatasi verir.
+/* ----------------------------------------------
+Q1 : okul_no , isim , adres, derece fieldlari olan 
+anadolu lisesi table olusturun. okul_no CHAR ve UNIQUE, 
+isim NOT NULL olacak.
+------------------------------------------------- */
+CREATE TABLE anadolu_lisesi
+(
+okul_no CHAR(4) UNIQUE,
+isim VARCHAR(20) NOT NULL,
+adres VARCHAR(20),
+derece DOUBLE
+);
+SELECT * FROM anadolu_lisesi;
+INSERT INTO anadolu_lisesi VALUES ('1001','Esat Fatih','Ankara',4.7);
+INSERT INTO anadolu_lisesi VALUES ('1002','Yusuf Rahman','Ankara',4.8);
+INSERT INTO anadolu_lisesi VALUES ('1003','Sevda Bagci','Istanbul',3.5);
+INSERT INTO anadolu_lisesi VALUES ('1004','Muhammet Ozyon','Ankara',4.3);
+INSERT INTO anadolu_lisesi VALUES ('1005','Saida Aliyeva','Ankara',4.1);
+INSERT INTO anadolu_lisesi VALUES ('1006','Cemil Cetin','Mardin',4.9);
+INSERT INTO anadolu_lisesi VALUES ('','Suleyman Yilmaz','Izmir',4.9);
+INSERT INTO anadolu_lisesi VALUES ('','Ayse Yilmaz','Izmir',4.9); -- bunu kaydetmez duplicate hatasi
+INSERT INTO anadolu_lisesi (okul_no,isim) VALUES ('1007','Ayse Yilmaz'); -- sadece okul no ve isim alınacaksa bu signtext kullanılır.
+INSERT INTO anadolu_lisesi (adres,isim) VALUES ('Antalya','Ayse Yilmaz'); -- stringde hicligi sadece 1 kere kaydeder. ama null değerleri sınırsız kaydeder.
+INSERT INTO anadolu_lisesi (adres,okul_no,derece) VALUES ('Antalya','1008',3.2); 
+
+
+
+
+
+
+
+
 
 
 
