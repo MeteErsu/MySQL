@@ -13,7 +13,7 @@ tik isaretini kaldirip kaydetmemiz gerekiyor, sonrasinda MySQL'i kapatip tekrar 
 isim ve iletisim_isim field'lari olsun. 
 Id ve isim'i beraber Primary Key yapin.
 ---------------------------------------------------------------------------------------*/
-use sys;
+
 CREATE TABLE firmalar
 (
 id INT,
@@ -33,7 +33,7 @@ INSERT INTO firmalar VALUES
 (3, 'KMN', 'Ayse Gulmez');
 SELECT * FROM firmalar;
 
-
+-- bu degisiklikler kilici olur
 -- Id'si 3 olan firmanin ismini 'KRM' olarak guncelleyiniz.
 UPDATE firmalar
 SET isim='KRM'
@@ -44,7 +44,13 @@ update firmalar
 set id=4, isim='FDS'
 where iletisim_isim='Veli Gul';
 
--- Iletisim ismi 'Osman Can' olan firmanin iletisim ismini 'Ayse Can' olarak guncelleyiniz.
+-- Iletisim ismi 'ACB' olan firmanin iletisim ismini 'Osman Can' olarak guncelleyiniz.
 update firmalar
 set iletisim_isim='Osman Can'
 where isim='ACB';
+
+-- Iletisim ismi 'Osman Can' olan firmanin iletisim ismini 'Ayse Can' olarak guncelleyiniz.
+update firmalar
+set iletisim_isim='Ayse Can'
+where iletisim_isim='Osman Can';
+

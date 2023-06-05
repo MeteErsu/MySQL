@@ -101,7 +101,7 @@ ve "tedarikci_id" yi Primary Key yapin.
  "urunler" isminde baska bir tablo olusturun "tedarikci_id" ve "urun_id"
  field'lari olsun ve "tedarikci_id" yi Foreign Key yapin.
 ---------------------------------------------------------------------------*/
-
+use sys;
 create table tedarikci
 (
 tedarikci_id char(4) primary key,
@@ -114,7 +114,7 @@ create table urunler
 tedarikcinin_id char(4),
 urun_id int,
 constraint urunler_fk foreign key(tedarikcinin_id)
-references tedarikci (tedarikcinin_id)
+references tedarikci (tedarikci_id)
 );
 
 /*------------------------------------------------------------------------
