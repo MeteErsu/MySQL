@@ -201,4 +201,4 @@ order by adres desc, isim desc;
 
 select *
 from insanciklar
-order by adres desc, isim desc;
+order by adres desc, isim desc, soyisim desc;
