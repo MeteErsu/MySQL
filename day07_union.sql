@@ -130,5 +130,59 @@ from kadro
 where sehir='istanbul'
 order by maas desc;
 
+/*
+SELECT (AGGREGATE FUNCTION, DISTINCT) AS name
+FROM table_name
+WHERE condition (LIKE, IN, REGEXP_LIKE, IS NULL, EXISTS, BETWEEN, AND, OR)
+GROUP BY
+HAVING
+ORDER BY (DESC)
+LIMIT
+*/
+
+
 -- 8) Sehirlerde odenen ucreti 3000'den fazla olan sehirleri ve personelden 
 -- ucreti 5000'den az olanlarin isimlerini bir tabloda gosteren sorguyu yaziniz
+
+
+SELECT sehir
+FROM kadro
+WHERE maas>3000
+UNION
+SELECT isim
+FROM kadro
+WHERE maas<5000;
+
+-- 9) 5000'den az maas alanlarin, arti Honda calisani olmayanlarin bilgilerini
+-- listeleyen bir sorgu yaziniz.
+
+SELECT *
+FROM kadro
+WHERE maas<5000
+UNION
+SELECT *
+FROM kadro
+WHERE sirket <> 'honda';
+
+-- <> ile != ayni anlami tasimaktadir!!!
+
+-- 10) Ismi Veli Sahin olanlari ve ek olarak Istanbul'da calismayanlarin isimlerini ve
+-- sehirlerini listeleyen sorguyu yaziniz.
+
+SELECT isim, sehir
+FROM kadro
+WHERE isim='Veli Sahin'
+union
+SELECT isim,sehir
+FROM kadro
+WHERE sehir<>'Istanbul';
+
+
+
+
+
+
+
+
+
+
